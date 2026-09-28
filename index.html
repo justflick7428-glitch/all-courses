@@ -1,0 +1,217 @@
+<style>
+    /* MASTER WRAPPER FOR BLOGGER FIX */
+    #course-funnel {
+        font-family: 'Poppins', sans-serif !important;
+        background-color: #0a0e14 !important; /* Super Dark Premium Vibe */
+        color: #ffffff !important;
+        margin: -20px !important; padding: 0 !important;
+        line-height: 1.6 !important; box-sizing: border-box !important; overflow-x: hidden !important;
+        position: relative !important;
+    }
+    #course-funnel * { box-sizing: border-box !important; }
+
+    /* TEXT HIGHLIGHTS */
+    #course-funnel .gold-text { color: #ffcc00 !important; font-weight: 900 !important; text-shadow: 0 0 10px rgba(255,204,0,0.5) !important; }
+    #course-funnel .green-text { color: #00e676 !important; font-weight: 900 !important; text-shadow: 0 0 10px rgba(0,230,118,0.5) !important; }
+    
+    /* 1. SCROLLING SALE ANIMATION BAR */
+    #course-funnel .sale-marquee {
+        background: #d50000 !important; color: #fff !important;
+        font-size: 18px !important; font-weight: 900 !important; padding: 10px !important;
+        text-transform: uppercase !important; overflow: hidden !important; white-space: nowrap !important;
+        position: sticky !important; top: 0 !important; z-index: 999 !important;
+        box-shadow: 0 5px 15px rgba(213,0,0,0.5) !important; border-bottom: 2px solid #ffcc00 !important;
+    }
+    #course-funnel .sale-marquee span {
+        display: inline-block !important; padding-left: 100% !important;
+        animation: scroll-left 12s linear infinite !important;
+    }
+    @keyframes scroll-left { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+    /* 2. BACKGROUND MONEY ANIMATION */
+    .money-particle {
+        position: fixed !important; font-size: 30px !important; z-index: 1 !important;
+        pointer-events: none !important; /* Taaki click me problem na ho */
+        animation: float-up linear infinite !important; opacity: 0 !important;
+    }
+    @keyframes float-up {
+        0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+        10% { opacity: 0.3; }
+        90% { opacity: 0.3; }
+        100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+    }
+    /* Alag-alag paise ki speed aur position */
+    .m1 { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+    .m2 { left: 30%; animation-duration: 12s; animation-delay: 2s; }
+    .m3 { left: 50%; animation-duration: 9s; animation-delay: 4s; }
+    .m4 { left: 70%; animation-duration: 11s; animation-delay: 1s; }
+    .m5 { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+
+    /* HERO SECTION */
+    #course-funnel .hero {
+        padding: 50px 5% !important; text-align: center !important; position: relative !important; z-index: 10 !important;
+        background: radial-gradient(circle at center, rgba(31,41,55,0.8) 0%, rgba(10,14,20,1) 100%) !important;
+    }
+    #course-funnel .hero h1 { font-size: 38px !important; line-height: 1.3 !important; margin-bottom: 20px !important; text-transform: uppercase !important; }
+    #course-funnel .hero p { font-size: 18px !important; color: #c9d1d9 !important; max-width: 800px !important; margin: 0 auto 30px auto !important; }
+
+    /* 3. MULTIPLE COURSE SELECTION (IMAGES + BUTTONS) */
+    #course-funnel .course-selection-box { margin-bottom: 50px !important; }
+    #course-funnel .course-grid {
+        display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 25px !important; max-width: 1100px !important; margin: auto !important;
+    }
+    #course-funnel .course-card {
+        background: #161b22 !important; border: 2px solid #ffcc00 !important; border-radius: 15px !important;
+        padding: 20px !important; text-align: center !important; transition: 0.3s !important;
+        box-shadow: 0 10px 30px rgba(255,204,0,0.1) !important; position: relative !important; overflow: hidden !important;
+    }
+    #course-funnel .course-card:hover { transform: translateY(-10px) !important; box-shadow: 0 15px 40px rgba(255,204,0,0.3) !important; }
+    
+    #course-funnel .course-img { width: 100% !important; height: 180px !important; object-fit: cover !important; border-radius: 10px !important; margin-bottom: 15px !important; border: 1px solid #333 !important; }
+    #course-funnel .course-title { font-size: 22px !important; color: #fff !important; font-weight: bold !important; margin-bottom: 10px !important; }
+    #course-funnel .course-price { font-size: 30px !important; color: #00e676 !important; font-weight: 900 !important; margin-bottom: 15px !important; }
+    #course-funnel .course-strike { text-decoration: line-through !important; color: #ff4444 !important; font-size: 16px !important; }
+
+    /* ANIMATED BUY BUTTON */
+    #course-funnel .buy-btn {
+        display: block !important; width: 100% !important; background: linear-gradient(to right, #00c853, #009624) !important;
+        color: white !important; font-size: 20px !important; font-weight: 900 !important;
+        padding: 15px 0 !important; border-radius: 8px !important; text-decoration: none !important;
+        text-transform: uppercase !important; border: 2px solid #69f0ae !important;
+        animation: pulse-green 1.5s infinite !important; transition: 0.3s !important;
+    }
+    #course-funnel .buy-btn:hover { background: linear-gradient(to right, #ffcc00, #ff8800) !important; color: #000 !important; border-color: #fff !important; }
+    @keyframes pulse-green { 0% { transform: scale(1); box-shadow: 0 0 10px rgba(0,200,83,0.5); } 50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0,200,83,0.9); } 100% { transform: scale(1); box-shadow: 0 0 10px rgba(0,200,83,0.5); } }
+
+    /* YOUTUBE VIDEO CONTAINER */
+    #course-funnel .video-wrapper { text-align: center !important; margin-top: 40px !important; }
+    #course-funnel .video-title { font-size: 26px !important; color: #ffcc00 !important; margin-bottom: 15px !important; text-transform: uppercase !important; font-weight: bold !important; animation: blink 1s infinite !important; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    
+    #course-funnel .video-box {
+        position: relative !important; padding-bottom: 56.25% !important; height: 0 !important;
+        max-width: 800px !important; margin: 0 auto 30px auto !important;
+        border: 4px dashed #00e676 !important; border-radius: 10px !important;
+        box-shadow: 0 10px 40px rgba(0, 230, 118, 0.2) !important; overflow: hidden !important;
+    }
+    #course-funnel .video-box iframe { position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; border: 0 !important; }
+
+    /* TIMER */
+    #course-funnel .timer-container { display: flex !important; justify-content: center !important; gap: 15px !important; margin: 20px 0 !important; }
+    #course-funnel .time-block { background: #000 !important; padding: 10px 15px !important; border-radius: 8px !important; border: 1px solid #ffcc00 !important; text-align: center !important; min-width: 75px !important; }
+    #course-funnel .time-block span { font-size: 26px !important; font-weight: 900 !important; color: #ffcc00 !important; display: block !important; }
+    #course-funnel .time-block small { font-size: 11px !important; color: #fff !important; text-transform: uppercase !important; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+        #course-funnel .hero h1 { font-size: 28px !important; }
+        #course-funnel .buy-btn { font-size: 18px !important; }
+        #course-funnel .course-title { font-size: 20px !important; }
+        #course-funnel .video-title { font-size: 22px !important; }
+    }
+</style>
+
+<!-- IMPORT FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+<div id="course-funnel">
+
+    <!-- FLOATING MONEY ANIMATION (DO NOT REMOVE) -->
+    <div class="money-particle m1">💸</div>
+    <div class="money-particle m2">💰</div>
+    <div class="money-particle m3">💵</div>
+    <div class="money-particle m4">💸</div>
+    <div class="money-particle m5">🤑</div>
+
+    <!-- SCROLLING SALE BAR -->
+    <div class="sale-marquee">
+        <span>🔥 FLASH SALE ACTIVE! GET UPTO 90% OFF ON ALL COURSES. HURRY UP! OFFER ENDS IN A FEW HOURS! 🔥</span>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <h1>The Secret System To Earn <span class="gold-text">₹1 Lakh/Month</span> Online!</h1>
+        <p>Aapki tarah maine bhi zero se start kiya tha. Aaj mai aapko apni <span class="green-text">EXACT Earning Blueprint</span> de raha hu. Choose your course below!</p>
+
+        <!-- COURSE SELECTION SECTION (IMAGES UPAR) -->
+        <div class="course-selection-box">
+            <h2 style="color: #fff; margin-bottom: 25px; font-size: 24px;">👇 CHOOSE YOUR MASTERCLASS 👇</h2>
+            
+            <div class="course-grid">
+                
+                <!-- COURSE 1 -->
+                <div class="course-card">
+                    <!-- YAHAN COURSE 1 KI IMAGE DAALEIN -->
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="YouTube Course" class="course-img">
+                    <div class="course-title">YouTube Automation Mastery</div>
+                    <p style="color: #aaa; font-size: 14px; margin-bottom: 10px;">Bina Face Dikhaye YouTube se paise kamayein.</p>
+                    <div class="course-strike">₹4,999</div>
+                    <div class="course-price">₹499</div>
+                    <!-- YAHAN COURSE 1 KA PAYMENT LINK DAALEIN -->
+                    <a href="https://rzp.io/l/course1-link" class="buy-btn" target="_blank">BUY COURSE 1</a>
+                </div>
+
+                <!-- COURSE 2 -->
+                <div class="course-card">
+                    <!-- YAHAN COURSE 2 KI IMAGE DAALEIN -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="Affiliate Course" class="course-img">
+                    <div class="course-title">Affiliate Marketing Blueprint</div>
+                    <p style="color: #aaa; font-size: 14px; margin-bottom: 10px;">Dusro ke products promote karke commission kamayein.</p>
+                    <div class="course-strike">₹3,999</div>
+                    <div class="course-price">₹299</div>
+                    <!-- YAHAN COURSE 2 KA PAYMENT LINK DAALEIN -->
+                    <a href="https://rzp.io/l/course2-link" class="buy-btn" target="_blank">BUY COURSE 2</a>
+                </div>
+
+                <!-- COURSE 3 (MEGA BUNDLE) -->
+                <div class="course-card" style="border-color: #00e676;">
+                    <div style="background: #00e676; color: #000; font-weight: bold; position: absolute; top: 0; left: 0; width: 100%; padding: 5px;">🔥 MOST POPULAR 🔥</div>
+                    <!-- YAHAN BUNDLE KI IMAGE DAALEIN -->
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&q=80" alt="All in one Bundle" class="course-img" style="margin-top: 25px;">
+                    <div class="course-title">The Ultimate VIP Bundle</div>
+                    <p style="color: #aaa; font-size: 14px; margin-bottom: 10px;">Saare Courses + Secret Templates + My Support</p>
+                    <div class="course-strike">₹10,999</div>
+                    <div class="course-price">₹999</div>
+                    <!-- YAHAN BUNDLE KA PAYMENT LINK DAALEIN -->
+                    <a href="https://rzp.io/l/bundle-link" class="buy-btn" target="_blank">BUY MEGA BUNDLE</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- YOUTUBE VIDEO SECTION (NECHE) -->
+        <div class="video-wrapper">
+            <div class="video-title">🎥 Watch This Before You Buy! 🎥</div>
+            <!-- YAHAN APNI YOUTUBE VIDEO KA EMBED LINK DAALEIN -->
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=0" title="YouTube Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- URGENCY TIMER -->
+        <div style="color: #ffcc00; font-weight: bold; margin-top: 20px; font-size: 18px;">Prices Increase In:</div>
+        <div class="timer-container">
+            <div class="time-block"><span id="hours">04</span><small>Hours</small></div>
+            <div class="time-block"><span id="minutes">45</span><small>Mins</small></div>
+            <div class="time-block"><span id="seconds">30</span><small>Secs</small></div>
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT TIMER -->
+<script>
+    let time = 4 * 3600 + 45 * 60; // 4 Hours 45 Mins
+    function updateCountdown() {
+        let h = Math.floor(time / 3600);
+        let m = Math.floor((time % 3600) / 60);
+        let s = time % 60;
+        document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+        document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+        document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        if (time > 0) time--;
+    }
+    setInterval(updateCountdown, 1000);
+</script>
